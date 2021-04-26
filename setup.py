@@ -2,15 +2,15 @@ import setuptools
 
 setuptools.setup(
     name="tgmb-chizu",
-    version="1.0.3",
+    version="1.0.5",
     author="reaitten",
     author_email="riojosepha@gmail.com",
     description="A Telegram Bot written in Python language to mirror files on the internet to Google Drive",
     long_description=open('README.md', 'r', encoding='utf-8').read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/reaitten/tgmb-chizu",
+    url="https://github.com/reaitten/tgchizu",
     project_urls={
-        "Bug Tracker": "https://github.com/reaitten/tgmb-chizu/issues",
+        "Bug Tracker": "https://github.com/reaitten/tgchizu/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
