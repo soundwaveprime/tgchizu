@@ -1,12 +1,12 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="setup" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-    <module name="tgmb-chizu" />
+    <module name="tgchizu" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
       <env name="PYTHONUNBUFFERED" value="1" />
     </envs>
-    <option name="SDK_HOME" value="$USER_HOME$/.local/share/virtualenvs/tgmb-chizut-jbhsMVhW/bin/python" />
+    <option name="SDK_HOME" value="$USER_HOME$/.local/share/virtualenvs/tgchizut-jbhsMVhW/bin/python" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/setup/" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />

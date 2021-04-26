@@ -5,6 +5,11 @@ pyproject.toml
 setup.py
 tgchizu/__init__.py
 tgchizu/__main__.py
+tgchizu.egg-info/PKG-INFO
+tgchizu.egg-info/SOURCES.txt
+tgchizu.egg-info/dependency_links.txt
+tgchizu.egg-info/requires.txt
+tgchizu.egg-info/top_level.txt
 tgchizu/helper/__init__.py
 tgchizu/helper/config/__init__.py
 tgchizu/helper/config/dynamic.py
@@ -58,8 +63,3 @@ tgchizu/modules/speedtest.py
 tgchizu/modules/stickers.py
 tgchizu/modules/usage.py
 tgchizu/modules/watch.py
-tgmb_chizu.egg-info/PKG-INFO
-tgmb_chizu.egg-info/SOURCES.txt
-tgmb_chizu.egg-info/dependency_links.txt
-tgmb_chizu.egg-info/requires.txt
-tgmb_chizu.egg-info/top_level.txt
