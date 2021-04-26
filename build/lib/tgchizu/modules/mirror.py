@@ -19,7 +19,7 @@ from tgchizu.helper.telegram_helper.bot_commands import BotCommands
 from tgchizu.helper.telegram_helper.filters import CustomFilters
 from tgchizu.helper.telegram_helper.message_utils import *
 from tgchizu.helper.telegram_helper import button_build
-from bot.helper.mirror_utils.download_utils.mega_download import MegaDownloader
+from tgchizu.helper.mirror_utils.download_utils.mega_download import MegaDownloader
 import pathlib
 import os
 import subprocess

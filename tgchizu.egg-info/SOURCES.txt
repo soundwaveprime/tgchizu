@@ -27,7 +27,7 @@ tgchizu/helper/mirror_utils/download_utils/__init__.py
 tgchizu/helper/mirror_utils/download_utils/aria2_download.py
 tgchizu/helper/mirror_utils/download_utils/direct_link_generator.py
 tgchizu/helper/mirror_utils/download_utils/download_helper.py
-tgchizu/helper/mirror_utils/download_utils/mega_downloader.py
+tgchizu/helper/mirror_utils/download_utils/mega_download.py
 tgchizu/helper/mirror_utils/download_utils/telegram_downloader.py
 tgchizu/helper/mirror_utils/download_utils/youtube_dl_download_helper.py
 tgchizu/helper/mirror_utils/status_utils/__init__.py

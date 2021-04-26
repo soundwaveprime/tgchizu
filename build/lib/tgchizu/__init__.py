@@ -100,43 +100,13 @@ except KeyError:
         update_dat('config.env', 'USER_SESSION_STRING', USER_SESSION_STRING)
 
 # Generate TELEGRAPH_TOKEN
-if USE_TELEGRAPH:
     sname = ''.join(random.SystemRandom().choices(string.ascii_letters, k=8))
     LOGGER.info("Using Telegra.ph...")
     LOGGER.info("Generating TELEGRAPH_TOKEN...")
     telegraph = Telegraph()
     telegraph.create_account(short_name=sname)
     TELEGRAPH_TOKEN = telegraph.get_access_token()
-if not USE_TELEGRAPH:
-    TELEGRAPH_TOKEN = None
-    LOGGER.info("Not Using Telegra.ph...")
-    pass
-try:
-    MEGA_KEY = getConfig('MEGA_KEY')
 
-except KeyError:
-    MEGA_KEY = None
-    LOGGER.info('MEGA API KEY NOT AVAILABLE')
-if MEGA_KEY is not None:
-    try:
-        MEGA_USERNAME = os.environ['MEGA_USERNAME']
-        MEGA_PASSWORD = os.environ['MEGA_PASSWORD']
-        # Start megasdkrest binary
-        subprocess.Popen(["megasdkrest", "--apikey", MEGA_KEY])
-        time.sleep(3)
-        mega_client = MegaSdkRestClient('http://localhost:6090')
-        try:
-            mega_client.login(MEGA_USERNAME, MEGA_PASSWORD)
-        except mega_err.MegaSdkRestClientException as e:
-            LOGGER.error(e.message['message'])
-            exit(0)
-    except KeyError:
-        LOGGER.info("Mega API KEY provided but credentials not provided. Starting mega in anonymous mode!")
-        MEGA_USERNAME = None
-        MEGA_PASSWORD = None
-else:
-    MEGA_USERNAME = None
-    MEGA_PASSWORD = None
 try:
     HEROKU_API_KEY = os.environ['HEROKU_API_KEY']
 except KeyError:
