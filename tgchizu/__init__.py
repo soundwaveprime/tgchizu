@@ -119,8 +119,8 @@ except KeyError:
     LOGGER.info('MEGA API KEY NOT AVAILABLE')
 if MEGA_KEY is not None:
     try:
-        MEGA_USERNAME = getConfig('MEGA_USERNAME')
-        MEGA_PASSWORD = getConfig('MEGA_PASSWORD')
+        MEGA_USERNAME = os.environ['MEGA_USERNAME']
+        MEGA_PASSWORD = os.environ['MEGA_PASSWORD']
         # Start megasdkrest binary
         subprocess.Popen(["megasdkrest", "--apikey", MEGA_KEY])
         time.sleep(3)
@@ -128,7 +128,7 @@ if MEGA_KEY is not None:
         try:
             mega_client.login(MEGA_USERNAME, MEGA_PASSWORD)
         except mega_err.MegaSdkRestClientException as e:
-            logging.error(e.message['message'])
+            LOGGER.error(e.message['message'])
             exit(0)
     except KeyError:
         LOGGER.info("Mega API KEY provided but credentials not provided. Starting mega in anonymous mode!")
@@ -138,29 +138,15 @@ else:
     MEGA_USERNAME = None
     MEGA_PASSWORD = None
 try:
-    HEROKU_API_KEY = getConfig('HEROKU_API_KEY')
+    HEROKU_API_KEY = os.environ['HEROKU_API_KEY']
 except KeyError:
-    logging.warning('HEROKU API KEY not provided!')
+    LOGGER.info('HEROKU API KEY not provided!')
     HEROKU_API_KEY = None
 try:
-    HEROKU_APP_NAME = getConfig('HEROKU_APP_NAME')
+    HEROKU_APP_NAME = os.environ['HEROKU_APP_NAME']
 except KeyError:
-    logging.warning('HEROKU APP NAME not provided!')
+    LOGGER.info('HEROKU APP NAME not provided!')
     HEROKU_APP_NAME = None
-try:
-    MEGA_API_KEY = getConfig('MEGA_API_KEY')
-except KeyError:
-    logging.warning('MEGA API KEY not provided!')
-    MEGA_API_KEY = None
-try:
-    MEGA_EMAIL_ID = getConfig('MEGA_EMAIL_ID')
-    MEGA_PASSWORD = getConfig('MEGA_PASSWORD')
-    if len(MEGA_EMAIL_ID) == 0 or len(MEGA_PASSWORD) == 0:
-        raise KeyError
-except KeyError:
-    logging.warning('MEGA Credentials not provided!')
-    MEGA_EMAIL_ID = None
-    MEGA_PASSWORD = None
 try:
     INDEX_URL = os.environ['INDEX_URL']
     if len(INDEX_URL) == 0:
