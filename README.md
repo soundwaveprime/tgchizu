@@ -1,6 +1,7 @@
 # Description:
 
 A Telegram Bot written in Python language to mirror files on the internet to Google Drive
+This is still currently ***IN PROGRESS***, and ***WILL NOT WORK*** due to buggy Mega Downloader. Will be fixed on a later date.
 
 # Credits:
 
@@ -11,6 +12,8 @@ A Telegram Bot written in Python language to mirror files on the internet to Goo
   > [afdulfauzan's python-aria-mirror-bot](https://github.com/afdulfauzan/python-aria-mirror-bot)
 
   > [magneto261290's magneto-python-aria](https://github.com/magneto261290/magneto-python-aria)
+  
+  > [breakdowns's slam-mirrorbot](https://github.com/breakdowns/slam-mirrorbot)
 
     All credits goes to the maintainers of the above repositories.
 
