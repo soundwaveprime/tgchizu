@@ -2,9 +2,9 @@ import requests
 from telegram.ext import CommandHandler
 from telegram import InlineKeyboardMarkup
 
-from tgchizu import Interval, INDEX_URL, LOGGER, MEGA_KEY, BUTTON_THREE_NAME, BUTTON_THREE_URL, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL
+from tgchizu import Interval, INDEX_URL, LOGGER, MEGA_KEY, BUTTON_THREE_NAME, BUTTON_THREE_URL, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, BLOCK_MEGA_LINKS
 from tgchizu import dispatcher, DOWNLOAD_DIR, DOWNLOAD_STATUS_UPDATE_INTERVAL, download_dict, download_dict_lock, SHORTENER, SHORTENER_API
-from tgchizu.helper.ext_utils import fs_utils, bot_utils
+from tgchizu.helper.ext_utils import fs_utils, bot_utils setInterval
 from tgchizu.helper.ext_utils.bot_utils import setInterval
 from tgchizu.helper.ext_utils.exceptions import DirectDownloadLinkException, NotSupportedExtractionArchive
 from tgchizu.helper.mirror_utils.download_utils.aria2_download import AriaDownloadHelper
@@ -236,8 +236,10 @@ def _mirror(bot, update, isTar=False, extract=False):
     except DirectDownloadLinkException as e:
         LOGGER.info(f'{link}: {e}')
     listener = MirrorListener(bot, update, isTar, tag, extract)
-    ariaDlManager.add_download(link, f'{DOWNLOAD_DIR}/{listener.uid}/', listener)
-    sendStatusMessage(update, bot)
+
+    else:
+        ariaDlManager.add_download(link, f'{DOWNLOAD_DIR}{listener.uid}/', listener, name)
+        sendStatusMessage(update, bot)
     if len(Interval) == 0:
         Interval.append(setInterval(DOWNLOAD_STATUS_UPDATE_INTERVAL, update_all_messages))
 

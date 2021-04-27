@@ -7,6 +7,8 @@ This is still currently ***IN PROGRESS***, and ***WILL NOT WORK*** due to buggy 
 
 - This repository is a fork-clone of the following repositories.
 
+  > [ksssomesh's tg-mirror-bot](https://github.com/ksssomesh12/tg-mirror-bot)
+
   > [lzzy12's python-aria-mirror-bot](https://github.com/lzzy12/python-aria-mirror-bot)
 
   > [afdulfauzan's python-aria-mirror-bot](https://github.com/afdulfauzan/python-aria-mirror-bot)

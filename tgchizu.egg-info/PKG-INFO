@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: tgchizu
-Version: 1.2.4
+Version: 1.2.6
 Summary: A Telegram Bot written in Python language to mirror files on the internet to Google Drive
 Home-page: https://github.com/reaitten/tgchizu
 Author: reaitten
@@ -15,6 +15,8 @@ Description: # Description:
         # Credits:
         
         - This repository is a fork-clone of the following repositories.
+        
+          > [ksssomesh's tg-mirror-bot](https://github.com/ksssomesh12/tg-mirror-bot)
         
           > [lzzy12's python-aria-mirror-bot](https://github.com/lzzy12/python-aria-mirror-bot)
         
