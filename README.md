@@ -1,8 +1,10 @@
 # Description:
 
-A Telegram Bot written in Python language to mirror files on the internet to Google Drive
+A Telegram Bot written in Python language to mirror files on the internet to Google Drive.
+
 This is currently ***IN BETA***, and you ***WILL FACE BUGS***. Runs, haven't tested all functions yet.
-v1.3.8
+
+Latest PyPi Package: v1.3.8
 
 # Credits:
 
@@ -63,7 +65,7 @@ ZIP RAR TAR 7Z ISO WIM CAB GZIP BZIP2 APM ARJ CHM CPIO CramFS DEB DMG FAT HFS LZ
 
 ## Info of Branches
 
-- **master** : most stable environment for production deploys.
+- **main** : most stable environment for production deploys.
 - **staging** : testing new features, fixes or better implementations of already existing ones.
 - **dev** : major feature updates that are under development - currently, added support for 'mega-dl'.
 
