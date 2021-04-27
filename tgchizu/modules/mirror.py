@@ -4,7 +4,7 @@ from telegram import InlineKeyboardMarkup
 
 from tgchizu import Interval, INDEX_URL, LOGGER, MEGA_KEY, BUTTON_THREE_NAME, BUTTON_THREE_URL, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, BLOCK_MEGA_LINKS
 from tgchizu import dispatcher, DOWNLOAD_DIR, DOWNLOAD_STATUS_UPDATE_INTERVAL, download_dict, download_dict_lock, SHORTENER, SHORTENER_API
-from tgchizu.helper.ext_utils import fs_utils, bot_utils setInterval
+from tgchizu.helper.ext_utils import fs_utils, bot_utils
 from tgchizu.helper.ext_utils.bot_utils import setInterval
 from tgchizu.helper.ext_utils.exceptions import DirectDownloadLinkException, NotSupportedExtractionArchive
 from tgchizu.helper.mirror_utils.download_utils.aria2_download import AriaDownloadHelper
@@ -235,8 +235,13 @@ def _mirror(bot, update, isTar=False, extract=False):
         link = direct_link_generator(link)
     except DirectDownloadLinkException as e:
         LOGGER.info(f'{link}: {e}')
-    listener = MirrorListener(bot, update, isTar, tag, extract)
-
+    listener = MirrorListener(bot, update, pswd, isTar, tag, extract)
+    if bot_utils.is_mega_link(link) and MEGA_KEY is not None and not BLOCK_MEGA_LINKS:
+        mega_dl = MegaDownloader(listener)
+        mega_dl.add_download(link, f'{DOWNLOAD_DIR}{listener.uid}/')
+        sendStatusMessage(update, bot)
+    elif bot_utils.is_mega_link(link) and BLOCK_MEGA_LINKS:
+        sendMessage("Mega links are blocked. Dont try to mirror mega links.", bot, update)
     else:
         ariaDlManager.add_download(link, f'{DOWNLOAD_DIR}{listener.uid}/', listener, name)
         sendStatusMessage(update, bot)

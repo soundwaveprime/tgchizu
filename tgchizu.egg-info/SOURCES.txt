@@ -11,6 +11,7 @@ tgchizu.egg-info/dependency_links.txt
 tgchizu.egg-info/requires.txt
 tgchizu.egg-info/top_level.txt
 tgchizu/helper/__init__.py
+tgchizu/helper/custom_filters.py
 tgchizu/helper/config/__init__.py
 tgchizu/helper/config/dynamic.py
 tgchizu/helper/config/editor.py
