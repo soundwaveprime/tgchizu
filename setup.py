@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="tgchizu",
-    version="1.3.2",
+    version="1.3.8",
     author="reaitten",
     author_email="riojosepha@gmail.com",
     description="A Telegram Bot written in Python language to mirror files on the internet to Google Drive",

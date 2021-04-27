@@ -88,25 +88,22 @@ try:
 except KeyError:
     USE_TELEGRAPH = False
 
-# Generate USER_SESSION_STRING, if not exists
-try:
-    if bool(os.environ['USER_SESSION_STRING']):
-        USER_SESSION_STRING = os.environ['USER_SESSION_STRING']
-        pass
-except KeyError:
-    LOGGER.info('Generating USER_SESSION_STRING...')
-    with Client(':memory:', api_id=int(TELEGRAM_API), api_hash=TELEGRAM_HASH, bot_token=BOT_TOKEN) as app:
-        USER_SESSION_STRING = app.export_session_string()
-        update_dat('config.env', 'USER_SESSION_STRING', USER_SESSION_STRING)
+# Generate USER_SESSION_STRING
+LOGGER.info("Generating USER_SESSION_STRING")
+with Client(':memory:', api_id=int(TELEGRAM_API), api_hash=TELEGRAM_HASH, bot_token=BOT_TOKEN) as app:
+    USER_SESSION_STRING = app.export_session_string()
 
-# Generate TELEGRAPH_TOKEN
+if USE_TELEGRAPH:
     sname = ''.join(random.SystemRandom().choices(string.ascii_letters, k=8))
     LOGGER.info("Using Telegra.ph...")
     LOGGER.info("Generating TELEGRAPH_TOKEN...")
     telegraph = Telegraph()
     telegraph.create_account(short_name=sname)
     TELEGRAPH_TOKEN = telegraph.get_access_token()
-    LOGGER.info("telegraph_token generated")
+if not USE_TELEGRAPH:
+    TELEGRAPH_TOKEN = None
+    LOGGER.info("Not Using Telegra.ph...")
+    pass
 
 try:
     MEGA_KEY = os.environ['MEGA_KEY']
