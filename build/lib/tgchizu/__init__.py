@@ -109,7 +109,7 @@ except KeyError:
     LOGGER.info("telegraph_token generated")
 
 try:
-    MEGA_KEY = getConfig('MEGA_KEY')
+    MEGA_KEY = os.environ['MEGA_KEY']
 
 except KeyError:
     MEGA_KEY = None
@@ -120,8 +120,8 @@ if MEGA_KEY is not None:
     time.sleep(3)  # Wait for the mega server to start listening
     mega_client = MegaSdkRestClient('http://localhost:6090')
     try:
-        MEGA_USERNAME = getConfig('MEGA_USERNAME')
-        MEGA_PASSWORD = getConfig('MEGA_PASSWORD')
+        MEGA_USERNAME = os.environ['MEGA_USERNAME']
+        MEGA_PASSWORD = os.environ['MEGA_PASSWORD']
         if len(MEGA_USERNAME) > 0 and len(MEGA_PASSWORD) > 0:
             try:
                 mega_client.login(MEGA_USERNAME, MEGA_PASSWORD)
@@ -207,7 +207,7 @@ except KeyError:
     USE_SERVICE_ACCOUNTS = False
 
 try:
-    BLOCK_MEGA_LINKS = getConfig('BLOCK_MEGA_LINKS')
+    BLOCK_MEGA_LINKS = os.environ['BLOCK_MEGA_LINKS']
     if BLOCK_MEGA_LINKS.lower() == 'true':
         BLOCK_MEGA_LINKS = True
     else:

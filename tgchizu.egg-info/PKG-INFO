@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: tgchizu
-Version: 1.2.6
+Version: 1.2.7
 Summary: A Telegram Bot written in Python language to mirror files on the internet to Google Drive
 Home-page: https://github.com/reaitten/tgchizu
 Author: reaitten
