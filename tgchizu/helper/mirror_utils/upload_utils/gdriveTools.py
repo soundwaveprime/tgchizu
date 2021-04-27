@@ -20,7 +20,7 @@ from telegram import InlineKeyboardMarkup
 from tgchizu.helper.telegram_helper import button_build
 from telegraph import Telegraph
 
-from tgchizu import parent_id, DOWNLOAD_DIR, IS_TEAM_DRIVE, INDEX_URL \
+from tgchizu import parent_id, DOWNLOAD_DIR, IS_TEAM_DRIVE, INDEX_URL, \
     USE_SERVICE_ACCOUNTS, download_dict, TELEGRAPH_TOKEN, BUTTON_THREE_NAME, BUTTON_THREE_URL, BUTTON_FOUR_NAME, \
     BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, SHORTENER, SHORTENER_API
 from tgchizu.helper.ext_utils.bot_utils import *
@@ -511,8 +511,9 @@ class GoogleDriveHelper:
                                                pageSize=200,
                                                fields='files(id, name, mimeType, size)',
                                                orderBy='modifiedTime desc').execute()
-
+                                               
         content_count = 0
+        if USE_TELEGRAPH:
             if response["files"]:
                 msg += f'<h4>Results : {fileName}</h4><br><br>'
                 for file in response.get('files', []):
@@ -562,20 +563,37 @@ class GoogleDriveHelper:
                 if msg != '':
                     self.telegraph_content.append(msg)
                 if len(self.telegraph_content) == 0:
-                    return "No Results Found :(", None
+                    return "No Result Found :(", None
                 for content in self.telegraph_content:
                     self.path.append(Telegraph(access_token=TELEGRAPH_TOKEN).create_page(
-                        title='tgchizu',
-                        author_name='or61',
-                        author_url='https://t.me/ori001',
+                        title='tg-mirror-bot - search',
+                        author_name='tg-mirror-bot',
+                        author_url='https://github.com/ksssomesh12/tg-mirror-bot',
                         html_content=content
                     )['path'])
                 self.num_of_path = len(self.path)
                 if self.num_of_path > 1:
                     self.edit_telegraph()
-                msg = f"<b>Search Results For {fileName}:</b>"
+                msg = f"<b>Search Results For {fileName} 👇</b>"
                 buttons = button_build.ButtonMaker()
                 buttons.buildbutton("HERE", f"https://telegra.ph/{self.path[0]}")
                 return msg, InlineKeyboardMarkup(buttons.build_menu(1))
             else:
                 return '', ''
+        if not USE_TELEGRAPH:
+            for file in response.get('files', []):
+                if file.get(
+                        'mimeType') == "application/vnd.google-apps.folder":  # Detect Whether Current Entity is a Folder or File.
+                    msg += f"⁍ <a href='https://drive.google.com/drive/folders/{file.get('id')}'>{file.get('name')}" \
+                           f"</a> (folder)"
+                    if INDEX_URL is not None:
+                        url = requests.utils.requote_uri(f'{INDEX_URL}/{file.get("name")}/')
+                        msg += f' | <a href="{url}"> Index URL</a>'
+                else:
+                    msg += f"⁍ <a href='https://drive.google.com/uc?id={file.get('id')}" \
+                           f"&export=download'>{file.get('name')}</a> ({get_readable_file_size(int(file.get('size')))})"
+                    if INDEX_URL is not None:
+                        url = requests.utils.requote_uri(f'{INDEX_URL}/{file.get("name")}')
+                        msg += f' | <a href="{url}"> Index URL</a>'
+                msg += '\n'
+            return msg, ''
