@@ -4,6 +4,9 @@ A Telegram Bot written in Python language to mirror files on the internet to Goo
 
 This is currently ***IN BETA***, and you ***WILL FACE BUGS***. Runs, haven't tested all functions yet.
 
+# Bugs
+/mirr is broken.
+
 Latest PyPi Package: v1.3.8
 
 # Credits:
