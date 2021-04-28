@@ -11,7 +11,7 @@ This is still currently ***IN BETA***, and ***WILL WORK WITH UNKNOWN BUGS, YET T
 
 - This repository is a fork-clone of the following repositories.
 
-  > [ksssomesh's tg-mirror-bot](https://github.com/ksssomesh12/tg-mirror-bot)
+  > [ksssomesh12's tg-mirror-bot](https://github.com/ksssomesh12/tg-mirror-bot)
 
   > [breakdowns's slam-mirrorbot](https://github.com/breakdowns/slam-mirrorbot)
 
