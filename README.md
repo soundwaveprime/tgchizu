@@ -83,7 +83,7 @@ ZIP RAR TAR 7Z ISO WIM CAB GZIP BZIP2 APM ARJ CHM CPIO CramFS DEB DMG FAT HFS LZ
 
 - **master** : most stable environment for production deploys.
 - **staging** : testing new features, fixes or better implementations of already existing ones.
-- **dev** : major feature updates that are under development - currently, added support for 'mega-dl'.
+- **dev** : major feature updates that are under development
 
 # Deploying:
 
