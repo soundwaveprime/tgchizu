@@ -11,7 +11,7 @@ from telegram import update
 from telegram.ext import run_async, CommandHandler
 
 
-@run_async
+
 def dyno_usage(update, context):
     heroku_api = "https://api.heroku.com"
     if HEROKU_API_KEY is not None and HEROKU_APP_NAME is not None:

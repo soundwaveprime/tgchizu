@@ -29,6 +29,16 @@ def clean_all():
         pass
 
 
+def exit_clean_up(signal, frame):
+    try:
+        LOGGER.info("Please wait, while we clean up the downloads and stop running downloads")
+        clean_all()
+        sys.exit(0)
+    except KeyboardInterrupt:
+        LOGGER.warning("Force Exiting before the cleanup finishes!")
+        sys.exit(1)
+
+
 def get_path_size(path):
     if os.path.isfile(path):
         return os.path.getsize(path)
@@ -45,7 +55,7 @@ def tar(org_path):
     path = pathlib.PurePath(org_path)
     LOGGER.info(f'Tar: orig_path: {org_path}, tar_path: {tar_path}')
     tar = tarfile.open(tar_path, "w")
-    tar.add(org_path, arcname=path.name)
+    tar.add(org_path, arcname=os.path.basename(org_path))
     tar.close()
     return tar_path
 

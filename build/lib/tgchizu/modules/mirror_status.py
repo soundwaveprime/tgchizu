@@ -1,4 +1,4 @@
-from telegram.ext import CommandHandler
+from telegram.ext import CommandHandler, run_async
 from tgchizu import dispatcher, status_reply_dict, DOWNLOAD_STATUS_UPDATE_INTERVAL, status_reply_dict_lock
 from tgchizu.helper.telegram_helper.message_utils import *
 from time import sleep

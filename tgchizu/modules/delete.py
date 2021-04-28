@@ -8,7 +8,7 @@ from tgchizu.helper.telegram_helper.bot_commands import BotCommands
 from tgchizu.helper.mirror_utils.upload_utils import gdriveTools
 
 
-@run_async
+
 def deletefile(update, context):
     msg_args = update.message.text.split(None, 1)
     msg = ''

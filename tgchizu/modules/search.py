@@ -136,7 +136,7 @@ async def nyaa_callback(client, callback_query):
             ignore.add(message_identifier)
     await callback_query.answer()
 
-@run_async
+
 def searchhelp(update, context):
     help_string = '''
 • /ts <i>[search query]</i>

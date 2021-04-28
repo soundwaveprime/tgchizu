@@ -18,7 +18,7 @@ from tgchizu import dispatcher
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
 
 
-@run_async
+
 def stickerid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.sticker:
@@ -38,7 +38,7 @@ def stickerid(update: Update, context: CallbackContext):
         )
 
 
-@run_async
+
 def cb_sticker(update: Update, context: CallbackContext):
     msg = update.effective_message
     split = msg.text.split(' ', 1)
@@ -74,7 +74,7 @@ def getsticker(update: Update, context: CallbackContext):
             "Please reply to a sticker for me to upload its PNG.")
 
 
-@run_async
+
 def kang(update: Update, context: CallbackContext):
     msg = update.effective_message
     user = update.effective_user
@@ -356,7 +356,7 @@ def kang(update: Update, context: CallbackContext):
         os.remove("kangsticker.tgs")
 
 
-@run_async
+
 def delsticker(update, context):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.sticker:
@@ -439,7 +439,7 @@ def makepack_internal(
             "Failed to create sticker pack. Possibly due to blek mejik.")
 
 
-@run_async
+
 def stickhelp(update, context):
     help_string = '''
 • /stickerid: Reply to a sticker to me to tell you its file ID.

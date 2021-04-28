@@ -149,7 +149,7 @@ query ($id: Int,$search: String) {
 url = 'https://graphql.anilist.co'
 
 
-@run_async
+
 def anime(update: Update, context: CallbackContext):
     message = update.effective_message
     search = message.text.split(' ', 1)
@@ -191,7 +191,7 @@ def anime(update: Update, context: CallbackContext):
         else: 
             update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(buttons))
 
-@run_async
+
 def character(update: Update, _):
     message = update.effective_message
     search = message.text.split(' ', 1)
@@ -212,7 +212,7 @@ def character(update: Update, _):
             update.effective_message.reply_photo(photo = image, caption = msg, parse_mode=ParseMode.MARKDOWN)
         else: update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
 
-@run_async
+
 def manga(update: Update, _):
     message = update.effective_message
     search = message.text.split(' ', 1)
@@ -250,7 +250,7 @@ def manga(update: Update, _):
                 update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(buttons))
         else: update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(buttons))
 
-@run_async
+
 def weebhelp(update, context):
     help_string = '''
 • /anime: search anime

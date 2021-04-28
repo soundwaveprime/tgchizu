@@ -25,7 +25,7 @@ from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clon
 
 now=datetime.now(pytz.timezone('America/Toronto'))
 
-@run_async
+
 def stats(update: Update, context: CallbackContext):
     currentTime = get_readable_time((time.time() - botStartTime))
     current = now.strftime('%Y/%m/%d %I:%M:%S %p')
@@ -51,7 +51,7 @@ def stats(update: Update, context: CallbackContext):
     sendMessage(stats, context.bot, update)
 
 
-@run_async
+
 def start(update: Update, context: CallbackContext):
     start_string = f'''
 mirrors files to shared drive. 
@@ -60,13 +60,13 @@ courtesy of @ori001.
 '''
     sendMessage(start_string, context.bot, update)
 
-@run_async
+
 def chat_list(update, context: CallbackContext):
     chatlist =''
     chatlist += '\n'.join(str(id) for id in AUTHORIZED_CHATS)
     sendMessage(f'<b>Authorized List:</b>\n{chatlist}\n', context.bot, update)
 
-@run_async
+
 def restart(update: Update, context: CallbackContext):
     restart_msg = sendMessage('Restarting, Please Wait...', context.bot, update)
     LOGGER.info(f'Restarting the Bot...')
@@ -85,7 +85,7 @@ def restart(update: Update, context: CallbackContext):
     execl(executable, executable, "-m", "tgchizu")
 
 
-@run_async
+
 def ping(update: Update, context: CallbackContext):
     start_time = int(round(time.time() * 1000))
     reply = sendMessage("Starting Ping...", context.bot, update)
@@ -93,12 +93,12 @@ def ping(update: Update, context: CallbackContext):
     editMessage(f'{end_time - start_time} ms', reply)
 
 
-@run_async
+
 def log(update: Update, context: CallbackContext):
     sendLogFile(context.bot, update)
 
 
-@run_async
+
 def bot_help(update: Update, context: CallbackContext):
     help_string = f'''
 /{BotCommands.StartCommand} Start the bot
