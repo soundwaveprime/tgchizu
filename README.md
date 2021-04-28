@@ -6,7 +6,7 @@ This is still currently ***IN BETA***, and ***WILL WORK WITH UNKNOWN BUGS, YET T
 
 ## Bugs:
 - you tell me! unless I find it first.
-- 
+
 # Credits:
 
 - This repository is a fork-clone of the following repositories.
