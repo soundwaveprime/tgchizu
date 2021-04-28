@@ -2,7 +2,7 @@
 
 A Telegram Bot written in Python language to mirror files on the internet to Google Drive.
 
-This is still currently ***IN BETA***, and ***WILL WORK WITH UNKNOWN BUGS, YET TO BE DISCOVERED***. 
+***WILL WORK WITH UNKNOWN BUGS, YET TO BE DISCOVERED***. 
 
 ## Bugs:
 - you tell me! unless I find it first.
