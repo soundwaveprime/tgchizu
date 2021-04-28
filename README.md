@@ -35,14 +35,20 @@ A Telegram Bot written in Python language to mirror files on the internet to Goo
 - Mirror Torrents
 - Mirror Direct Links
 - Mirror Telegram Files
+- Mirror Mega.nz Files
 - Upload Files after Archiving/Unarchiving
 - Download and Upload Progress, Speeds and ETAs
 - Docker Support
 - Uploading To Team Drives
+- Delete files from drive
 - Index Link Support
 - Shortener Support
 - Service Account Support
+- Custom Filename (Only for url, telegram files and ytdl. Not for mega links and magnet/torrents)
 - Mirror 'youtube-dl' Supported Links
+- Extracting password protected files, using custom filename and download from password protected index links see these examples:
+<p><a href="https://telegra.ph/Magneto-Python-Aria---Custom-Filename-Examples-01-20"> <img src="https://img.shields.io/badge/see%20on%20telegraph-grey?style=for-the-badge" width="190""/></a></p>
+
 
 ## Additional Features
 
@@ -51,6 +57,14 @@ A Telegram Bot written in Python language to mirror files on the internet to Goo
 - Edit values of environment variables in 'config.env' from within the bot using InlineKeyboardButtons.
 - 'aria2c' daemon starts as a subprocess from within the 'bot' python module, facilitating better handling of processes. This also results in both 'aria2c' daemon and the 'bot' python module restarting with every '/restart' command.
 - Support for using custom tracker list formatted as a text file, as required by 'aria2c' daemon.
+- Mirroring Uptobox.com links to Google Drive (Uptobox account must be premium)
+- Nyaa.si and Sukebei Torrent search
+- Speedtest with picture results
+- Limiting torrent size support
+- Check Heroku dynos stats
+- Add stickers to your pack
+- Shell and Executor
+- racaty.net support
 
 ## Supported Archive File Types
 ```
