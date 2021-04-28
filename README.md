@@ -123,9 +123,9 @@ Fill up rest of the fields. The description of each field is given below.
 - **MEGA_PASSWORD**: Your password for your mega.nz account 
 - **BLOCK_MEGA_FOLDER**: (Optional field) If you want to remove mega.nz folder support, set it to `True`.
 - **BLOCK_MEGA_LINKS**: (Optional field) If you want to remove mega.nz mirror support (bcoz it's too much buggy and unstable), set it to `True`.
-- **HEROKU_API_KEY** = "" Your Heroku API key.
-- **HEROKU_APP_NAME** = "" Your Heroku app name.
-- **AUTHORIZED_CHATS** = "" Chat IDs you want to authorize. To add multiple group IDs, they must be seperated with a space. For example: "-100000 -1111111 -122222"
+- **HEROKU_API_KEY**: Your Heroku API key.
+- **HEROKU_APP_NAME**: Your Heroku app name.
+- **AUTHORIZED_CHATS**: Chat IDs you want to authorize. To add multiple group IDs, they must be seperated with a space. For example: "-100000 -1111111 -122222"
 
 
 
