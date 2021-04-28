@@ -66,6 +66,14 @@ if os.path.exists('authorized_chats.txt'):
             #    LOGGER.info(line.split())
             AUTHORIZED_CHATS.add(int(line.split()[0]))
 try:
+    achats = os.environ['AUTHORIZED_CHATS']
+    achats = achats.split(" ")
+    for chats in achats:
+        AUTHORIZED_CHATS.add(int(chats))
+except:
+    pass
+
+try:
     BOT_TOKEN = os.environ['BOT_TOKEN']
     parent_id = os.environ['GDRIVE_FOLDER_ID']
     DOWNLOAD_DIR = os.environ['DOWNLOAD_DIR']

@@ -566,20 +566,23 @@ class GoogleDriveHelper:
                     return "No Result Found :(", None
                 for content in self.telegraph_content:
                     self.path.append(Telegraph(access_token=TELEGRAPH_TOKEN).create_page(
-                        title='tg-mirror-bot - search',
-                        author_name='tg-mirror-bot',
-                        author_url='https://github.com/ksssomesh12/tg-mirror-bot',
+                        title='tgchizu',
+                        author_name='tgchizu',
+                        author_url='https://github.com/reaitten/tgchizu',
                         html_content=content
                     )['path'])
-                self.num_of_path = len(self.path)
-                if self.num_of_path > 1:
-                    self.edit_telegraph()
-                msg = f"<b>Search Results For {fileName} 👇</b>"
-                buttons = button_build.ButtonMaker()
-                buttons.buildbutton("HERE", f"https://telegra.ph/{self.path[0]}")
-                return msg, InlineKeyboardMarkup(buttons.build_menu(1))
-            else:
-                return '', ''
+            self.num_of_path = len(self.path)
+            if self.num_of_path > 1:
+                self.edit_telegraph()
+
+            msg = f"<b>🔎 Search Results For <i>{fileName}</i></b> \n<b>📚 Found {len(response['files'])} results</b>"
+            buttons = button_build.ButtonMaker()   
+            buttons.buildbutton("HERE", f"https://telegra.ph/{self.path[0]}")
+
+            return msg, InlineKeyboardMarkup(buttons.build_menu(1))
+
+        else :
+            return '', ''
         if not USE_TELEGRAPH:
             for file in response.get('files', []):
                 if file.get(

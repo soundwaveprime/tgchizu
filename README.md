@@ -1,19 +1,13 @@
 # Description:
 
-A Telegram Bot written in Python language to mirror files on the internet to Google Drive.
+A Telegram Bot written in Python language to mirror files on the internet to Google Drive
 
-This is still currently ***IN BETA***, and ***WILL WORK WITH UNKNOWN BUGS, YET TO BE DISCOVERED***. 
-
-## Bugs:
-- you tell me! unless I find it first.
 
 # Credits:
 
 - This repository is a fork-clone of the following repositories.
 
-  > [ksssomesh12's tg-mirror-bot](https://github.com/ksssomesh12/tg-mirror-bot)
-
-  > [breakdowns's slam-mirrorbot](https://github.com/breakdowns/slam-mirrorbot)
+  > [ksssomesh's tg-mirror-bot](https://github.com/ksssomesh12/tg-mirror-bot)
 
   > [lzzy12's python-aria-mirror-bot](https://github.com/lzzy12/python-aria-mirror-bot)
 
@@ -21,6 +15,7 @@ This is still currently ***IN BETA***, and ***WILL WORK WITH UNKNOWN BUGS, YET T
 
   > [magneto261290's magneto-python-aria](https://github.com/magneto261290/magneto-python-aria)
   
+  > [breakdowns's slam-mirrorbot](https://github.com/breakdowns/slam-mirrorbot)
 
     All credits goes to the maintainers of the above repositories.
 
@@ -82,7 +77,7 @@ sudo apt install python3
 
 ## Cloning and Setting Up Config File
 
-- Download and Extract the [Latest Release Package](https://github.com/reaitten/tgchizu/releases):
+- Download and Extract the [Latest Release Package](https://github.com/ksssomesh12/tg-mirror-bot/releases):
 ```
 mkdir ~/Downloads/deploy_heroku
 mv ~/Downloads/deploy_release_v* ~/Downloads/deploy_heroku
@@ -118,16 +113,6 @@ Fill up rest of the fields. The description of each field is given below.
 - **MAX_CONCURRENT_DOWNLOADS** : Set the maximum concurrent downloads. By default, it is set to '3'.
 - **TRACKERSLIST** : Set the URL of the trackerslist text file. By default, it is set to 'https://trackerslist.com/all_aria2.txt'.
 - **USE_TELEGRAPH** : Set to "true" to use Telegra.ph for search results from '/list' bot command, or else set to "false".
-- **MEGA_KEY**: Mega.nz api key to mirror mega.nz links. Get it from [Mega SDK Page](https://mega.nz/sdk)
-- **MEGA_USERNAME**: Your email id you used to sign up on mega.nz for using premium accounts (Leave th)
-- **MEGA_PASSWORD**: Your password for your mega.nz account 
-- **BLOCK_MEGA_FOLDER**: (Optional field) If you want to remove mega.nz folder support, set it to `True`.
-- **BLOCK_MEGA_LINKS**: (Optional field) If you want to remove mega.nz mirror support (bcoz it's too much buggy and unstable), set it to `True`.
-- **HEROKU_API_KEY** = "" Your Heroku API key.
-- **HEROKU_APP_NAME** = "" Your Heroku app name.
-- **AUTHORIZED_CHATS** = "" Chat IDs you want to authorize. To add multiple group IDs, they must be seperated with a space. For example: "-100000 -1111111 -122222"
-
-
 
 **NOTE:** The trackerslist text file must contain tracker URLs in a single line, separated by commas, as required by 'aria2c'.
 
@@ -136,8 +121,6 @@ Fill up rest of the fields. The description of each field is given below.
 - **IS_TEAM_DRIVE** : Set to "true" if GDRIVE_FOLDER_ID is from a Team Drive, or else set to "false" or leave it empty.
 - **USE_SERVICE_ACCOUNTS** : Whether to use service accounts or not. For this to work see  "Using service accounts" section below.
 - **STOP_DUPLICATE_MIRROR** : Set this to "true", if you want to check for duplicate files (using file name, and not file hash) in Google Drive matching the requested download and stop the download if found any.
-- **ENABLE_FILESIZE_LIMIT**: Set it to `True` if you want to use `MAX_TORRENT_SIZE`.
-- **MAX_TORRENT_SIZE**: To limit the torrent mirror size, Fill The amount you want to limit, examples: if you fill `15` it will limit `15gb`.
 - **INDEX_URL** : Refer to [GDIndex repo](https://github.com/maple3142/GDIndex/). The URL should not have any trailing '/'.
 - **SHORTENER** : URL of the Shortener.
 - **SHORTENER_API** : API Key of the Shortener.
@@ -226,7 +209,7 @@ git init
 git add .
 git commit -m "initial commit"
 heroku git:remote --app your-mirror-bot
-git push heroku main
+git push heroku master
 ```
 - If the Docker Image Build succeeds, then, your push to the remote repository will succeed, otherwise, your push to the remote repository is rejected as the Docker Image Build fails.
 

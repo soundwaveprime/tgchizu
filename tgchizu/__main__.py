@@ -55,7 +55,6 @@ def stats(update: Update, context: CallbackContext):
 def start(update: Update, context: CallbackContext):
     start_string = f'''
 mirrors files to shared drive. 
-courtesy of @ori001. 
 /{BotCommands.HelpCommand} for a list of available commands.
 '''
     sendMessage(start_string, context.bot, update)
