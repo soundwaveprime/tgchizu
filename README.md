@@ -8,6 +8,8 @@ A Telegram Bot written in Python language to mirror files on the internet to Goo
 
 little experiment of mine where i combine [ksssomesh12's tgmb](https://github.com/ksssomesh12/tg-mirror-bot) & [breakdowns's slam-mirrorbot](https://github.com/breakdowns/slam-mirrorbot) together. All credit should go to them, they are the ones who maintain these mirror bots to this day. I did **not** create any of this, only made it compatible with each other. 
 
+If you'd like a more stable version similar to this repo, [priiiyo](https://github.com/priiiyo)'s [priiyo-mirrorbot](https://github.com/priiiyo/priiiyo-mirror-bot). 
+
 Removed images sent with commands & /repo.
 
 ## Bugs:
